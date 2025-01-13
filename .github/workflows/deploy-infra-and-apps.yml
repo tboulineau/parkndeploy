@@ -6,6 +6,11 @@ permissions:
 env: 
   AZURE_RG_NAME: ${{ vars.PROJECT_NAME }}-rg-${{ vars.AZURE_RESOURCE_IDENTIFIER }}
   
+trigger:
+  tags:
+    include:
+    - 'release-*'
+
 jobs:
   deploy_infrastructure:
     runs-on: ubuntu-latest
